@@ -25,7 +25,7 @@ angular.module('irancard')
   };
 
   $scope.submitForm = function() {
-    formData = $scope.form;
+    formData = $scope.form; 
     $http({
       url: 'http://irancard.local',
       method: "POST",
