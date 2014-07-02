@@ -1,0 +1,147 @@
+
+    <section class="head home">
+        <header>
+            <div class="container">
+                <a href="#" class="logo">
+                    <i class="icon-logo"></i>
+                </a>
+
+                <nav class="menu">
+                    <a href="#">
+                        <i class="icon-about"></i>
+                        معرفی ایران‌کارت
+                    </a>
+
+                    <a href="#">
+                        <i class="icon-advanteges"></i>
+                        مزایای استفاده
+                    </a>
+
+                    <a href="#">
+                        <i class="icon-ways"></i>
+                        روش‌های شارز ایران‌کارت
+                    </a>
+
+                    <a href="#">
+                        <i class="icon-chart"></i>
+                        مدیریت حساب‌ها و امتیازات
+                    </a>
+
+                    <a href="#">
+                        <i class="icon-support"></i>
+                        پشتیبانی
+                    </a>
+                </nav>
+
+                <div class="more">
+                    <div class="user login">
+                        <a href="#">
+                            <i class="icon-login"></i>
+                        </a>
+                        <div class="login-panel">
+                            <form ng-submit="submitForm()">
+                                <input type="text" placeholder="نام کاربری"  ng-model="form.username"/>
+                                <input type="password" placeholder="کلمه عبور"  ng-model="form.password"/>
+                                <button type="submit" ngClick="Submit">ورود</button>
+                                <a href="#">فراموشی کلمه عبور</a>
+                                <a class="signup" href="#/register">ثبت‌نام</a>
+                            </form>
+						</div>
+                    </div>
+
+                    <div class="search">
+                        <input type="text" class="search" id="search" placeholder="جستجو" />
+                        <label for="search">
+                            <i class="icon-search"></i>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </section>
+
+    <section class="regiester-form">
+        <div class="container">
+            <hgroup>
+                <h1>فرم درخواست ایران کارت</h1>
+                <p>
+                    شما برای اولین بار کارت آبی ایران کارت دریافت می نمایید و با افزایش امتیازات خود بصورت پلکانی کارتهای نقره ای ، طلایی و پلاتینیوم دریافت خواهید کرد
+                </p>
+                <p>
+                   شما با داشتن رمز دوم کارت شتابی خود می توانید مبلغ مورد نظر را بعد از فعال شدن شماره کارت خود  به ایران کارت انتقال دهید و در صورت عدم شارژ شماره کارت فعال شدن ظرف مدت 12 ساعت ، شماره اختصاص داده شده غیر فعال می گردد .
+                </p>
+            </hgroup>
+
+            <form ng-submit="registerForm()">
+                <hgroup>
+                    <h2><i class="icon-personal"></i>اطلاعات فردی</h2>
+                </hgroup>
+                <fieldset>
+                    <div class="input-group">
+                        <input type="text" name="Name" placeholder="نام"  ng-model="formRegister.username">
+                        <input type="text" name="Family" placeholder="نام خانوادگی"  ng-model="formRegister.family">
+                    </div>
+                    <div class="input">
+                        <input type="text" name="SSN" placeholder="کد ملی"  ng-model="formRegister.usercode">
+                    </div>
+                    <div class="input">
+                        <input type="text" name="Birthday" placeholder="تاریخ تولد"  ng-model="formRegister.birthday">
+                    </div>
+                    <div class="input">
+                        <input type="text" name="PhoneNumber" placeholder="شماره تلفن همراه"  ng-model="formRegister.phone">
+                    </div>
+                    <div class="input">
+                        <input type="text" name="email" placeholder="ایمیل" ng-model="formRegister.email">
+                    </div>
+                    <div class="input">
+                        <textarea name="Address" placeholder="آدرس محل سکونت" ng-model="formRegister.address"></textarea>
+                    </div>
+                </fieldset>
+                <hgroup>
+                    <h2><i class="icon-card"></i>ایران کارت شما</h2>
+                </hgroup>
+                <fieldset>
+                    <div class="input">
+                        <input type="text" name="email" placeholder="میزان شارژ اولیه" ng-model="formRegister.charge">
+                    </div>
+                    <div class="input">
+                        <input type="checkbox" name="verify" id="verify" />
+                        <label for="verify"><a href="#">قوانین و مقرارت</a> ایرانکارت را خوانده ام و قبول دارم.</label>
+                    </div>
+                </fieldset>
+                <button type="submit" ngClick="submit">ثبت نام</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="footer">
+        <footer>
+            <div class="container">
+                <ul>
+                    <li><a href="#">درباره ما</a>
+                    </li>
+                    <li><a href="#">معرفی مجموعه</a>
+                    </li>
+                    <li><a href="#">مرکز تماس</a>
+                    </li>
+                    <li><a href="#">همکاری با ما</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li><a href="#">نحوه درخواست و صدور کارت</a>
+                    </li>
+                    <li><a href="#">نحوه استفاده از ایران کارت</a>
+                    </li>
+                    <li><a href="#">پیکیری صدور کارت</a>
+                    </li>
+                    <li><a href="#">ارتباط با پشتیبانی</a>
+                    </li>
+                </ul>
+
+                <div class="side">
+                    <div class="logo"></div>
+                    <span class="tell"><i class="icon-tell"></i>۲۲۲۵۸۴۵۶۹۸</span>
+                </div>
+            </div>
+        </footer>
+    </section>

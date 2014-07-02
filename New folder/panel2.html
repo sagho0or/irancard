@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>IranCard Prototype</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/bjqs.css">
+</head>
+
+<body class="panel">
+    <section class="head">
+        <header>
+            <div class="container">
+                <a href="#" class="logo">
+                    <i class="icon-logo"></i>
+                </a>
+
+                <nav class="menu">
+                    <a href="#">
+                        <i class="icon-about"></i>
+                        معرفی ایران‌کارت
+                    </a>
+
+                    <a href="#">
+                        <i class="icon-advanteges"></i>
+                        مزایای استفاده
+                    </a>
+
+                    <a href="#">
+                        <i class="icon-ways"></i>
+                        روش‌های شارز ایران‌کارت
+                    </a>
+
+                    <a href="#">
+                        <i class="icon-chart"></i>
+                        مدیریت حساب‌ها و امتیازات
+                    </a>
+
+                    <a href="#">
+                        <i class="icon-support"></i>
+                        پشتیبانی
+                    </a>
+                </nav>
+
+                <div class="more">
+                    <div class="search">
+                        <input type="text" class="search" id="search" placeholder="جستجو" />
+                        <label for="search">
+                            <i class="icon-search"></i>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </section>
+
+    <section class="panel-page">
+        <section class="panel-heading">
+            <div class="container">
+                <div class="user-info card-blue">
+                    <div class="details">
+                        <h1 class="welcome">
+                            به پنل کاربری ایران‌کارت خوش‌آمدید.
+                        </h1>
+                        <h2 class="time">
+                            بیستم خرداد 1392
+                        </h2>
+                        <h1 class="username">آقای حسینی‌زاده</h1>
+                        <h3>آخرین ورود: بیست اردیبهشت ساعت ۱۳:۳۰</h3>
+                    </div>
+                </div>
+                <div class="user-chart">
+                    <canvas id="canvasthree" width="660" height="210"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel-cardstate">
+            <div class="progressbar">
+                <div class="progresspane" style="width: 53px;"></div>
+            </div>
+            <div class="container">
+                <div class="card-state blue">
+                    <div class="inner">
+                    </div>
+                </div>
+                <div class="card-state silver">
+                    <div class="inner">
+                    </div>
+                </div>
+                <div class="card-state gold">
+                    <div class="inner">
+                    </div>
+                </div>
+                <div class="card-state black">
+                    <div class="inner">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel-tables">
+            <div class="container">
+                <article class="sidebar">
+                    <hgroup>
+                        <h1>مدیریت حساب‌ها</h1>
+                    </hgroup>
+                    <nav>
+                        <a href="#">صورت حساب مالی ایران‌کارت</a>
+                        <a href="#">صورت حساب مالی ایران‌کارت</a>
+                        <a href="#">صورت حساب مالی ایران‌کارت</a>
+                        <a href="#">صورت حساب مالی ایران‌کارت</a>
+                    </nav>
+                    <div class="side-box">
+                        <hgroup>
+                            <h1>آخرین تراکنش های هفته پیش</h1>
+                        </hgroup>
+                        <div class="chart">
+                            <canvas id="canvastwo" width="260" height="150"></canvas>
+                        </div>
+                    </div>
+                    <div class="side-box">
+                        <hgroup>
+                            <h1>آخرین تراکنش های هفته پیش</h1>
+                        </hgroup>
+                        <div class="chart">
+                            <canvas id="canvas" width="260" height="150"></canvas>
+                        </div>
+                    </div>
+                    <div class="side-box">
+                        <hgroup>
+                            <h1>مبدل ارزها</h1>
+                        </hgroup>
+                        <div class="form">
+                            <div class="form-input" />
+                            <input type="text" placeholder="میزان ارز" />
+                            <select>
+                                <option value="ریال">ریال</option>
+                                <option value="دلار">دلار</option>
+                                <option value="یورو">یورو</option>
+                                <option value="پوند">پوند</option>
+                                <option value="ین">ین</option>
+                            </select>
+                        </div>
+                        <div class="form-input" />
+                            <input type="text" placeholder="میزان ارز" />
+                            <select>
+                                <option value="ریال">ریال</option>
+                                <option value="دلار">دلار</option>
+                                <option value="یورو">یورو</option>
+                                <option value="پوند">پوند</option>
+                                <option value="ین">ین</option>
+                            </select>
+                        </div>
+                </div>
+            </div>
+            </article>
+            <article class="table-box">
+                <header>
+                    <div class="title-toggle">
+                        <a href="#">
+                            <h1>صورت حساب مالی ایران کارت</h1>
+                        </a>
+                    </div>
+                    <div class="filter">
+                        <div class="input-form">
+                            <label>نمایش از تاریخ</label>
+                            <input type="text" />
+                        </div>
+                        <div class="input-form">
+                            <label>تا تاریخ</label>
+                            <input type="text" />
+                        </div>
+                        <div class="input-form">
+                            <label>نمایش</label>
+                            <input type="text" />
+                            <label>آخر</label>
+                        </div>
+                    </div>
+                </header>
+                <table id="dataTable">
+                    <thead>
+                        <th>واریز</th>
+                        <th>برداشت</th>
+                        <th>نوع سند</th>
+                        <th>نوع برداشت</th>
+                        <th>شماره پیگیری</th>
+                        <th>شماره مرجع</th>
+                        <th>شماره ترمینال</th>
+                        <th>نام پذیرنده</th>
+                        <th>نام بانک</th>
+                        <th>تاریخ</th>
+                        <th>ردیف</th>
+                    </thead>
+                    <tr>
+                        <td>2000</td>
+                        <td>1000</td>
+                        <td>اختیاری</td>
+                        <td>مستقیم</td>
+                        <td>۲۵۰۴</td>
+                        <td>۲۳۴۵۵/ج</td>
+                        <td>۵۲۴</td>
+                        <td>آرش اصغری</td>
+                        <td>آینده</td>
+                        <td>۲۴/۳/۹۴</td>
+                        <td>ب</td>
+                    </tr>
+                    <tr>
+                        <td>2000</td>
+                        <td>1000</td>
+                        <td>اختیاری</td>
+                        <td>مستقیم</td>
+                        <td>۲۵۰۴</td>
+                        <td>۲۳۴۵۵/ج</td>
+                        <td>۵۲۴</td>
+                        <td>آرش اصغری</td>
+                        <td>آینده</td>
+                        <td>۲۴/۳/۹۴</td>
+                        <td>ب</td>
+                    </tr>
+                    <tr>
+                        <td>2000</td>
+                        <td>1000</td>
+                        <td>اختیاری</td>
+                        <td>مستقیم</td>
+                        <td>۲۵۰۴</td>
+                        <td>۲۳۴۵۵/ج</td>
+                        <td>۵۲۴</td>
+                        <td>آرش اصغری</td>
+                        <td>آینده</td>
+                        <td>۲۴/۳/۹۴</td>
+                        <td>ب</td>
+                    </tr>
+                    <tr>
+                        <td>2000</td>
+                        <td>1000</td>
+                        <td>اختیاری</td>
+                        <td>مستقیم</td>
+                        <td>۲۵۰۴</td>
+                        <td>۲۳۴۵۵/ج</td>
+                        <td>۵۲۴</td>
+                        <td>آرش اصغری</td>
+                        <td>آینده</td>
+                        <td>۲۴/۳/۹۴</td>
+                        <td>ب</td>
+                    </tr>
+                    <tr>
+                        <td>2000</td>
+                        <td>1000</td>
+                        <td>اختیاری</td>
+                        <td>مستقیم</td>
+                        <td>۲۵۰۴</td>
+                        <td>۲۳۴۵۵/ج</td>
+                        <td>۵۲۴</td>
+                        <td>آرش اصغری</td>
+                        <td>آینده</td>
+                        <td>۲۴/۳/۹۴</td>
+                        <td>ب</td>
+                    </tr>
+                    <tr>
+                        <td>2000</td>
+                        <td>1000</td>
+                        <td>اختیاری</td>
+                        <td>مستقیم</td>
+                        <td>۲۵۰۴</td>
+                        <td>۲۳۴۵۵/ج</td>
+                        <td>۵۲۴</td>
+                        <td>آرش اصغری</td>
+                        <td>آینده</td>
+                        <td>۲۴/۳/۹۴</td>
+                        <td>ب</td>
+                    </tr>
+                    <tr>
+                        <td>2000</td>
+                        <td>1000</td>
+                        <td>اختیاری</td>
+                        <td>مستقیم</td>
+                        <td>۲۵۰۴</td>
+                        <td>۲۳۴۵۵/ج</td>
+                        <td>۵۲۴</td>
+                        <td>آرش اصغری</td>
+                        <td>آینده</td>
+                        <td>۲۴/۳/۹۴</td>
+                        <td>ب</td>
+                    </tr>
+                    <tr>
+                        <td>2000</td>
+                        <td>1000</td>
+                        <td>اختیاری</td>
+                        <td>مستقیم</td>
+                        <td>۲۵۰۴</td>
+                        <td>۲۳۴۵۵/ج</td>
+                        <td>۵۲۴</td>
+                        <td>آرش اصغری</td>
+                        <td>آینده</td>
+                        <td>۲۴/۳/۹۴</td>
+                        <td>ب</td>
+                    </tr>
+                    <tr>
+                        <td>2000</td>
+                        <td>1000</td>
+                        <td>اختیاری</td>
+                        <td>مستقیم</td>
+                        <td>۲۵۰۴</td>
+                        <td>۲۳۴۵۵/ج</td>
+                        <td>۵۲۴</td>
+                        <td>آرش اصغری</td>
+                        <td>آینده</td>
+                        <td>۲۴/۳/۹۴</td>
+                        <td>ب</td>
+                    </tr>
+                    <tr>
+                        <td>2000</td>
+                        <td>1000</td>
+                        <td>اختیاری</td>
+                        <td>مستقیم</td>
+                        <td>۲۵۰۴</td>
+                        <td>۲۳۴۵۵/ج</td>
+                        <td>۵۲۴</td>
+                        <td>آرش اصغری</td>
+                        <td>آینده</td>
+                        <td>۲۴/۳/۹۴</td>
+                        <td>ب</td>
+                    </tr>
+                    <tr>
+                        <td>2000</td>
+                        <td>1000</td>
+                        <td>اختیاری</td>
+                        <td>مستقیم</td>
+                        <td>۲۵۰۴</td>
+                        <td>۲۳۴۵۵/ج</td>
+                        <td>۵۲۴</td>
+                        <td>آرش اصغری</td>
+                        <td>آینده</td>
+                        <td>۲۴/۳/۹۴</td>
+                        <td>ب</td>
+                    </tr>
+                    <tr>
+                        <td>2000</td>
+                        <td>1000</td>
+                        <td>اختیاری</td>
+                        <td>مستقیم</td>
+                        <td>۲۵۰۴</td>
+                        <td>۲۳۴۵۵/ج</td>
+                        <td>۵۲۴</td>
+                        <td>آرش اصغری</td>
+                        <td>آینده</td>
+                        <td>۲۴/۳/۹۴</td>
+                        <td>ب</td>
+                    </tr>
+                    <tr>
+                        <td>2000</td>
+                        <td>1000</td>
+                        <td>اختیاری</td>
+                        <td>مستقیم</td>
+                        <td>۲۵۰۴</td>
+                        <td>۲۳۴۵۵/ج</td>
+                        <td>۵۲۴</td>
+                        <td>آرش اصغری</td>
+                        <td>آینده</td>
+                        <td>۲۴/۳/۹۴</td>
+                        <td>ب</td>
+                    </tr>
+                    <tr>
+                        <td>2000</td>
+                        <td>1000</td>
+                        <td>اختیاری</td>
+                        <td>مستقیم</td>
+                        <td>۲۵۰۴</td>
+                        <td>۲۳۴۵۵/ج</td>
+                        <td>۵۲۴</td>
+                        <td>آرش اصغری</td>
+                        <td>آینده</td>
+                        <td>۲۴/۳/۹۴</td>
+                        <td>ب</td>
+                    </tr>
+                    <tr>
+                        <td>2000</td>
+                        <td>1000</td>
+                        <td>اختیاری</td>
+                        <td>مستقیم</td>
+                        <td>۲۵۰۴</td>
+                        <td>۲۳۴۵۵/ج</td>
+                        <td>۵۲۴</td>
+                        <td>آرش اصغری</td>
+                        <td>آینده</td>
+                        <td>۲۴/۳/۹۴</td>
+                        <td>ب</td>
+                    </tr>
+                    <tr>
+                        <td>2000</td>
+                        <td>1000</td>
+                        <td>اختیاری</td>
+                        <td>مستقیم</td>
+                        <td>۲۵۰۴</td>
+                        <td>۲۳۴۵۵/ج</td>
+                        <td>۵۲۴</td>
+                        <td>آرش اصغری</td>
+                        <td>آینده</td>
+                        <td>۲۴/۳/۹۴</td>
+                        <td>ب</td>
+                    </tr>
+                    <tr>
+                        <td>2000</td>
+                        <td>1000</td>
+                        <td>اختیاری</td>
+                        <td>مستقیم</td>
+                        <td>۲۵۰۴</td>
+                        <td>۲۳۴۵۵/ج</td>
+                        <td>۵۲۴</td>
+                        <td>آرش اصغری</td>
+                        <td>آینده</td>
+                        <td>۲۴/۳/۹۴</td>
+                        <td>ب</td>
+                    </tr>
+                    <tr>
+                        <td>2000</td>
+                        <td>1000</td>
+                        <td>اختیاری</td>
+                        <td>مستقیم</td>
+                        <td>۲۵۰۴</td>
+                        <td>۲۳۴۵۵/ج</td>
+                        <td>۵۲۴</td>
+                        <td>آرش اصغری</td>
+                        <td>آینده</td>
+                        <td>۲۴/۳/۹۴</td>
+                        <td>ب</td>
+                    </tr>
+                    <tr>
+                        <td>2000</td>
+                        <td>1000</td>
+                        <td>اختیاری</td>
+                        <td>مستقیم</td>
+                        <td>۲۵۰۴</td>
+                        <td>۲۳۴۵۵/ج</td>
+                        <td>۵۲۴</td>
+                        <td>آرش اصغری</td>
+                        <td>آینده</td>
+                        <td>۲۴/۳/۹۴</td>
+                        <td>ب</td>
+                    </tr>
+                    <tr>
+                        <td>2000</td>
+                        <td>1000</td>
+                        <td>اختیاری</td>
+                        <td>مستقیم</td>
+                        <td>۲۵۰۴</td>
+                        <td>۲۳۴۵۵/ج</td>
+                        <td>۵۲۴</td>
+                        <td>آرش اصغری</td>
+                        <td>آینده</td>
+                        <td>۲۴/۳/۹۴</td>
+                        <td>ب</td>
+                    </tr>
+                </table>
+            </article>
+            </div>
+        </section>
+    </section>
+
+    <section class="footer">
+        <footer>
+            <div class="container">
+                <ul>
+                    <li><a href="#">درباره ما</a>
+                    </li>
+                    <li><a href="#">معرفی مجموعه</a>
+                    </li>
+                    <li><a href="#">مرکز تماس</a>
+                    </li>
+                    <li><a href="#">همکاری با ما</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li><a href="#">نحوه درخواست و صدور کارت</a>
+                    </li>
+                    <li><a href="#">نحوه استفاده از ایران کارت</a>
+                    </li>
+                    <li><a href="#">پیکیری صدور کارت</a>
+                    </li>
+                    <li><a href="#">ارتباط با پشتیبانی</a>
+                    </li>
+                </ul>
+
+                <div class="side">
+                    <div class="logo"></div>
+                    <span class="tell"><i class="icon-tell"></i>۲۲۲۵۸۴۵۶۹۸</span>
+                </div>
+            </div>
+        </footer>
+    </section>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bjqs.js"></script>
+    <script type="text/javascript" src="js/stickytitles.js"></script>
+    <script type="text/javascript" src="js/chart.min.js"></script>
+    <script type="text/javascript" src="js/jquery.dataTables.js"></script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+
+            // Panel ProgressBar
+            var progressPaneWidth = function() {
+                var windowsWidth = $(window).width(),
+                    progressMinWidth = (windowsWidth - 960) / 2;
+
+                $('.progressbar .progresspane').width(progressMinWidth);
+
+            }
+
+            // var progressChangeState = function() {
+            //     var BLOCK_WIDTH = 240,
+            //         currentWidth = 0;
+
+            //     var PROGRESS_WIDTH = $(this).width();
+
+            //     if( PROGRESS_WIDTH > BLOCK_WIDTH) {
+            //         $(this).addClass('silver');
+            //     }
+
+            //     if(PROGRESS_WIDTH > 2 * BLOCK_WIDTH) {
+            //         $(this).removeClass('silver');
+            //         $(this).addClass('gold');
+            //     }
+
+            //     if(PROGRESS_WIDTH > 3 * BLOCK_WIDTH) {
+            //         $(this).removeClass('gold');
+            //         $(this).addClass('black');
+            //     }
+            // }
+
+            progressPaneWidth();
+
+            $(window).resize(function() {
+                progressPaneWidth();
+            })
+
+
+            // $('.progressbar .progresspane').resize(function(){
+            //     console.log("Hey!");
+            //     progressChangeState();
+            // });
+
+            // Calling DataTables
+            $('#dataTable').dataTable({
+                "scrollX": true,
+                "language": {
+                    "url": "js/dataTablesPersian.json"
+                },
+                "initComplete": function(settings, json) {
+                                    selectInit();
+                                }
+            });
+
+            // Adding Custom Select Boxes to entire page
+            var selectInit = function() {
+                $('select').each(function() {
+                    $(this).parent().append("<div class='customselect'></div>");
+                    var selectClone = $(this).clone();
+                    $(this).parent().children('.customselect').append(selectClone);
+                    $(this).remove()
+                });
+            }
+
+            selectInit();
+
+        });
+
+        // Bar Charts Settings
+        var lineChartData = {
+            labels: ["مهر", "شهریور", "خرداد"],
+            datasets: [{
+                fillColor: "rgba(220,220,220,0.5)",
+                strokeColor: "rgba(220,220,220,1)",
+                pointColor: "rgba(220,220,220,1)",
+                pointStrokeColor: "#fff",
+                data: [56, 55, 40]
+            }, {
+                fillColor: "rgba(151,187,205,0.5)",
+                strokeColor: "rgba(151,187,205,1)",
+                pointColor: "rgba(151,187,205,1)",
+                pointStrokeColor: "#fff",
+                data: [96, 27, 100]
+            }]
+        }
+
+        var lineChartDataTwo = {
+            labels: ["مهر", "آبان", "شهریور", "خرداد", "دی", "بهمن", "اسفند"],
+            datasets: [{
+                fillColor: "rgba(220,220,220,0.5)",
+                strokeColor: "rgba(220,220,220,1)",
+                pointColor: "rgba(220,220,220,1)",
+                pointStrokeColor: "#fff",
+                data: [65, 59, 90, 81, 56, 55, 40]
+            }, {
+                fillColor: "rgba(151,187,205,0.5)",
+                strokeColor: "rgba(151,187,205,1)",
+                pointColor: "rgba(151,187,205,1)",
+                pointStrokeColor: "#fff",
+                data: [28, 48, 40, 19, 96, 27, 100]
+            }]
+
+        }
+
+        // Calling BarCharts
+        var myLine = new Chart(document.getElementById("canvas").getContext("2d")).Line(lineChartData);
+        var myLine2 = new Chart(document.getElementById("canvastwo").getContext("2d")).Line(lineChartData);
+        var myLine3 = new Chart(document.getElementById("canvasthree").getContext("2d")).Line(lineChartDataTwo);
+    </script>
+</body>
+
+</html>

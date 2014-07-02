@@ -1,0 +1,164 @@
+	<section class="head home">
+		<header>
+			<div class="container">
+				<a href="#" class="logo">
+					<i class="icon-logo"></i>
+				</a>
+
+				<nav class="menu">
+					<a href="#">
+						<i class="icon-about"></i>
+						معرفی ایران‌کارت
+					</a>
+
+					<a href="#">
+						<i class="icon-advanteges"></i>
+						مزایای استفاده
+					</a>
+
+					<a href="#">
+						<i class="icon-ways"></i>
+						روش‌های شارز ایران‌کارت
+					</a>
+
+					<a href="#">
+						<i class="icon-chart"></i>
+						مدیریت حساب‌ها و امتیازات3
+					</a>
+
+					<a href="#">
+						<i class="icon-support"></i>
+						پشتیبانی
+					</a>
+				</nav>
+
+				<div class="more">
+					<div class="user login">
+						<a href="#">
+							<i class="icon-login"></i>
+						</a>
+						<div class="login-panel">
+							<form ng-submit="submitForm()">
+								<input type="text" placeholder="نام کاربری"  ng-model="form.username"/>
+								<input type="password" placeholder="کلمه عبور"  ng-model="form.password"/>
+								<button type="submit" ngClick="Submit">ورود</button>
+								<a href="#">فراموشی کلمه عبور</a>
+								<a class="signup" href="#/register">ثبت‌نام</a>
+							</form>
+						</div>
+					</div>
+
+					<div class="search">
+						<input type="text" class="search" id="search" placeholder="جستجو" />
+						<label for="search">
+							<i class="icon-search"></i>
+						</label>
+					</div>
+				</div>
+			</div>
+		</header>
+	</section>
+
+	<section class="hero">
+		<div class="container">
+			<hgroup>
+				<h1>برای اولین بار در تاریخ بانک‌داری ایران</h1>
+				<h2>اخذ امتیاز نقدی و امتیاز تشویقی جایگزین مناسب برای بن‌کارت پرسنلی با  امتیازات ویژه</h2>
+
+				<a href="#">
+					<i class="icon-join"></i>
+					عضو شوید
+				</a>
+			</hgroup>
+		</div>
+	</section>
+
+	<section class="info">
+		<div class="container">
+			<div class="slideshow">
+				<ul class="bjqs">
+					<li>
+						<div class="slide">
+							<img src="images/slide/1.jpg" />
+							<div class="desc">
+								<h1>بانک آینده حامی جام جهانی فوتبال برزیل</h1>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="slide">
+							<img src="images/slide/1.jpg" />a
+							<div class="desc">
+								<h1>بانک آینده حامی جام جهانی فوتبال برزیل</h1>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="slide">
+							<img src="images/slide/1.jpg" />
+							<div class="desc">
+								<h1>بانک آینده حامی جام جهانی فوتبال برزیل</h1>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="slide">
+							<img src="images/slide/1.jpg" />
+							<div class="desc">
+								<h1>بانک آینده حامی جام جهانی فوتبال برزیل</h1>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="newslist">
+				<div class="news" ng-repeat="newsItem in news">
+					<div class="figure">
+						<img src="{{newsItem.src}}">
+					</div>
+					<div class="details">
+						<a href="/news/{{newsItem.id}}/{{newsItem.header | filterText}}"><h1>{{newsItem.header || 'تیتر خبر' }}</h1></a>
+						<p>
+							{{newsItem.content | filterLimit }}
+						</p>
+						<span class="time">
+							<i class="icon-calendar"></i>
+							{{newsItem.date || 'تاریخ' }}
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="contact">
+		<div class="container">
+			<h1>
+				<i class="icon-location"></i> تهران، بزرگراه کردستان، خیابان 21. پلاک 3.
+			</h1>
+		</div>
+	</section>
+
+	<section class="footer">
+		<footer>
+			<div class="container">
+				<ul>
+					<li><a href="#">درباره ما</a></li>
+					<li><a href="#">معرفی مجموعه</a></li>
+					<li><a href="#">مرکز تماس</a></li>
+					<li><a href="#">همکاری با ما</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">نحوه درخواست و صدور کارت</a></li>
+					<li><a href="#">نحوه استفاده از ایران کارت</a></li>
+					<li><a href="#">پیکیری صدور کارت</a></li>
+					<li><a href="#">ارتباط با پشتیبانی</a></li>
+				</ul>
+
+				<div class="side">
+					<div class="logo"></div>
+					<span class="tell"><i class="icon-tell"></i>۲۲۲۵۸۴۵۶۹۸</span>
+				</div>
+			</div>
+		</footer>
+	</section>

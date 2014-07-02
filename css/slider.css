@@ -1,0 +1,145 @@
+#imageSliderWrapper {
+    position:relative;
+    border:0px solid green;
+}
+#imageSlider {
+    height: 237px;
+    /*width is optional, but height is required.*/
+    float:left;
+    padding:0;
+    /*Note: never change this value other than 0*/
+    overflow:hidden;
+    position:relative;
+    text-align:center;
+}
+/*--------div.item is each slides. It is the child div nodes of #imageSlider, and the wrapper of each slide image--------*/
+ #imageSlider div.item {
+    /* width:160px; */
+    /* height:94px; */
+    /* padding:2px; */
+    /* background-color:White; */
+    /* border:1px solid #EEE; */
+}
+/* #imageSlider img 
+{
+    width:160px; height:94px; 
+} */
+
+/* .description 
+{
+    color:White;
+    position:absolute;
+    top:30px;
+    left:10px;
+} */
+
+/*---------navigation buttons-------*/
+ .navPrev, .navPlay, .navPause, .navNext {
+    width:29px;
+    height:29px;
+    position:absolute;
+    top:60px;
+    display:inline-block;
+    z-index:5;
+    cursor:pointer;
+}
+.navPrev:before, .navNext:before {
+    position:absolute;    
+    background:url(../images/category-arrow.svg) center no-repeat;
+    width:30px;
+    top:0;
+    bottom:0;
+    content:"";
+}
+
+.navPrev {
+    background: -moz-linear-gradient(left,  rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0.35)), color-stop(100%,rgba(0,0,0,0)));
+    background: -webkit-linear-gradient(left,  rgba(0,0,0,0.35) 0%,rgba(0,0,0,0) 100%);
+    background: -o-linear-gradient(left,  rgba(0,0,0,0.35) 0%,rgba(0,0,0,0) 100%);
+    background: -ms-linear-gradient(left,  rgba(0,0,0,0.35) 0%,rgba(0,0,0,0) 100%);
+    background: linear-gradient(to right,  rgba(0,0,0,0.35) 0%,rgba(0,0,0,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#59000000', endColorstr='#00000000',GradientType=1 );
+}
+
+.navNext {
+    background: -moz-linear-gradient(left,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65)));
+    background: -webkit-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);
+    background: -o-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);
+    background: -ms-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);
+    background: linear-gradient(to right,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=1 );
+}
+
+.navPause {
+    background-position:0 0;
+    left:218px;
+    display: none;
+}
+.navPlay {
+    background-position:0 -29px;
+    left:218px;
+}
+.navPrev {
+    width: 30px;
+    height: 237px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.navPrev:before {
+    background-position: 0 center;
+}
+.navNext:before {
+    background-position: -30px center;
+}
+.navNext {
+    width: 30px;
+    height: 237px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+.navPrev, .navPlay, .navPause, .navNext {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+/*---------navigation bullets--------*/
+
+/* Note: When "ScrollAllInView" was set to true in the Javascript, the navBullets won't be displayed.*/
+ .navBullets {
+    /*display:none;*/
+    /*set it display:none when you want to hide it*/
+    z-index:5;
+    cursor:pointer;
+    /*Specify the position of navigation buttons*/
+    position:absolute;
+    top:20px;
+    left:220px;
+    display: none;
+    width:24px;
+}
+/*.navBullets div defines the style of each bullet*/
+ .navBullets div {
+    width:8px;
+    height:8px;
+    background:transparent url(bullets.png) no-repeat 0 0;
+    float:left;
+    overflow:hidden;
+    vertical-align:middle;
+    cursor:pointer;
+    margin-right:6px;
+    /*margin-right determines the distance between each list item*/
+    _position:relative;
+    /*IE6 hack*/
+}
+.navBullets div.focus {
+    background-position:0 -8px;
+}

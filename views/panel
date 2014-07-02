@@ -1,0 +1,224 @@
+    <section class="head">
+        <header>
+            <div class="container">
+                <a href="#" class="logo">
+                    <i class="icon-logo"></i>
+                </a>
+
+                <nav class="menu">
+                    <a href="#">
+                        <i class="icon-about"></i>
+                        معرفی ایران‌کارت
+                    </a>
+
+                    <a href="#">
+                        <i class="icon-advanteges"></i>
+                        مزایای استفاده
+                    </a>
+
+                    <a href="#">
+                        <i class="icon-ways"></i>
+                        روش‌های شارز ایران‌کارت
+                    </a>
+
+                    <a href="#">
+                        <i class="icon-chart"></i>
+                        مدیریت حساب‌ها و امتیازات
+                    </a>
+
+                    <a href="#">
+                        <i class="icon-support"></i>
+                        پشتیبانی
+                    </a>
+                </nav>
+
+                <div class="more">
+                    <div class="search">
+                        <input type="text" class="search" id="search" placeholder="جستجو" />
+                        <label for="search">
+                            <i class="icon-search"></i>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </section>
+
+    <section class="panel-page">
+        <section class="panel-heading">
+            <div class="container">
+                <div class="user-info card-blue">
+                    <div class="details">
+                        <h1 class="welcome">
+                            به پنل کاربری ایران‌کارت خوش‌آمدید.
+                        </h1>
+                        <h2 class="time">
+                            {{information.date || 'تاریخ' }}
+                        </h2>
+                        <h1 class="username">{{information.name || 'نام'}}</h1>
+                        <h3>آخرین ورود: {{information.lastVisit || 'تاریخ' }}</h3>
+                    </div>
+                </div>
+                <div class="user-chart">
+                    <canvas id="canvasthree" width="660" height="210"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel-cardstate">
+            <div class="progressbar">
+                <div class="progresspane" style="width: 53px;"></div>
+            </div>
+            <div class="container">
+                <div class="card-state blue">
+                    <div class="inner">
+                    </div>
+                </div>
+                <div class="card-state silver">
+                    <div class="inner">
+                    </div>
+                </div>
+                <div class="card-state gold">
+                    <div class="inner">
+                    </div>
+                </div>
+                <div class="card-state black">
+                    <div class="inner">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel-tables">
+            <div class="container">
+                <article class="sidebar">
+                    <hgroup>
+                        <h1>مدیریت حساب‌ها</h1>
+                    </hgroup>
+                    <nav>
+                        <a href="#">صورت حساب مالی ایران‌کارت</a>
+                        <a href="#">صورت حساب مالی ایران‌کارت</a>
+                        <a href="#">صورت حساب مالی ایران‌کارت</a>
+                        <a href="#">صورت حساب مالی ایران‌کارت</a>
+                    </nav>
+                    <div class="side-box">
+                        <hgroup>
+                            <h1>آخرین تراکنش های هفته پیش</h1>
+                        </hgroup>
+                        <div class="chart">
+                            <canvas id="canvas" width="260" height="150"></canvas>
+                        </div>
+                    </div>
+                    <div class="side-box">
+                        <hgroup>
+                            <h1>مبدل ارزها</h1>
+                        </hgroup>
+                        <div class="form">
+                            <div class="form-input" />
+                            <input type="text" placeholder="میزان ارز" />
+                            <select>
+                                <option value="ریال">ریال</option>
+                                <option value="دلار">دلار</option>
+                                <option value="یورو">یورو</option>
+                                <option value="پوند">پوند</option>
+                                <option value="ین">ین</option>
+                            </select>
+                        </div>
+                        <div class="form-input" />
+                            <input type="text" placeholder="میزان ارز" />
+                            <select>
+                                <option value="ریال">ریال</option>
+                                <option value="دلار">دلار</option>
+                                <option value="یورو">یورو</option>
+                                <option value="پوند">پوند</option>
+                                <option value="ین">ین</option>
+                            </select>
+                        </div>
+                </article>
+                <article class="table-box">
+                    <header>
+                        <div class="title-toggle">
+                            <a href="#">
+                                <h1>صورت حساب مالی ایران کارت</h1>
+                            </a>
+                        </div>
+                        <div class="filter">
+                            <div class="input-form">
+                                <label>نمایش از تاریخ</label>
+                                <input type="text" />
+                            </div>
+                            <div class="input-form">
+                                <label>تا تاریخ</label>
+                                <input type="text" />
+                            </div>
+                            <div class="input-form">
+                                <label>نمایش</label>
+                                <input type="text" />
+                                <label>آخر</label>
+                            </div>
+                        </div>
+                    </header>
+                    <table id="dataTable">
+                        <thead>
+                            <th>واریز</th>
+                            <th>برداشت</th>
+                            <th>نوع سند</th>
+                            <th>نوع برداشت</th>
+                            <th>شماره پیگیری</th>
+                            <th>شماره مرجع</th>
+                            <th>شماره ترمینال</th>
+                            <th>نام پذیرنده</th>
+                            <th>نام بانک</th>
+                            <th>تاریخ</th>
+                            <th>ردیف</th>
+                        </thead>
+                        <tr ng-repeat="col in information.infoTable">
+                            <td>{{col.a || 'خالی' }}</td>
+                            <td>{{col.b || 'خالی' }}</td>
+                            <td>{{col.c || 'خالی' }}</td>
+                            <td>{{col.d || 'خالی' }}</td>
+                            <td>{{col.e || 'خالی' }}</td>
+                            <td>{{col.f || 'خالی' }}</td>
+                            <td>{{col.g || 'خالی' }}</td>
+                            <td>{{col.h || 'خالی' }}</td>
+                            <td>{{col.i || 'خالی' }}</td>
+                            <td>{{col.j || 'خالی' }}</td>
+                            <td>{{col.k || 'خالی' }}</td>
+                        </tr>
+                    </table>
+                </article>
+            </div>
+        </section>
+    </section>
+
+    <section class="footer">
+        <footer>
+            <div class="container">
+                <ul>
+                    <li><a href="#">درباره ما</a>
+                    </li>
+                    <li><a href="#">معرفی مجموعه</a>
+                    </li>
+                    <li><a href="#">مرکز تماس</a>
+                    </li>
+                    <li><a href="#">همکاری با ما</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li><a href="#">نحوه درخواست و صدور کارت</a>
+                    </li>
+                    <li><a href="#">نحوه استفاده از ایران کارت</a>
+                    </li>
+                    <li><a href="#">پیکیری صدور کارت</a>
+                    </li>
+                    <li><a href="#">ارتباط با پشتیبانی</a>
+                    </li>
+                </ul>
+
+                <div class="side">
+                    <div class="logo"></div>
+                    <span class="tell"><i class="icon-tell"></i>۲۲۲۵۸۴۵۶۹۸</span>
+                </div>
+            </div>
+        </footer>
+    </section>
