@@ -19,7 +19,7 @@ angular.module('irancard')
 
 .controller('IrancardController' , function ($rootScope, $scope , $http) {
   // for submit user
-  var formData = {
+  var formData = { 
       username: "default",
       password: "default"
   };
