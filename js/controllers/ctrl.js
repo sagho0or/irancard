@@ -1,6 +1,11 @@
+function scrollTop(){
+  $('html,body').animate({scrollTop: 0},300);
+}
+
 angular.module('irancard')
 .run(function($rootScope) {
   $rootScope.username = 'saghar';
+  $rootScope.register = false ;
     
 })
 
@@ -12,12 +17,15 @@ angular.module('irancard')
 })
 
 .filter('filterLimit', function(){
+  // for text overflow
   return function(str) { 
     return str.substr(0, 185)+'...'
   };
 })
 
 .controller('IrancardController' , function ($rootScope, $scope , $http) {
+
+  scrollTop();
   // for submit user
   var formData = { 
       username: "default",
@@ -72,8 +80,8 @@ angular.module('irancard')
 })
 
 
-.controller('NewsController' , function ($rootScope, $scope , $http ,$routeParams , $route)
-{
+.controller('NewsController' , function ($rootScope, $scope , $http ,$routeParams , $route) {
+  scrollTop();
   // for fix header
   jQuery(document).ready(function($) {
     var newStickies = new stickyTitles(jQuery(".stickyHeader"));
@@ -100,9 +108,13 @@ angular.module('irancard')
   });
 })
 
-.controller('RegisterController' , function ($rootScope, $scope , $http , $route)
-{
+.controller('RegisterController' , function ($rootScope, $scope , $http , $route) {
 
+//   var myList = document.getElementsByTagName('body');
+// myList.setAttribute("class", "regiester");
+$rootScope.register = true;
+
+  scrollTop();
   // for submit user(login)
   var formData = {
       username: "default",
@@ -185,13 +197,14 @@ angular.module('irancard')
 })
 
 
-.controller('PanelController' , function ($rootScope, $scope , $http, $timeout){
+.controller('PanelController' , function ($rootScope, $scope , $http, $timeout) {
+  scrollTop();
   $scope.name = $rootScope.username;
   
   //getting events json
   $http({
     method: 'GET',
-    url: apiBaseUrl + '/js/json/'+$scope.name+'.json'
+    url: apiBaseUrl + '/js/json/' + $scope.name + '.json'
   }).
   success(function (data) {
     $scope.information= {
