@@ -38,10 +38,10 @@
 							<i class="icon-login"></i>
 						</a>
 						<div class="login-panel">
-							<form ng-submit="submitForm()">
-								<input type="text" placeholder="نام کاربری"  ng-model="form.username"/>
-								<input type="password" placeholder="کلمه عبور"  ng-model="form.password"/>
-								<button type="submit" ngClick="Submit">ورود</button>
+							<form action=' /accounts/auth/'>
+								<input type="text" placeholder="نام کاربری" />
+								<input type="password" placeholder="کلمه عبور" />
+								<button type="submit">ورود</button>
 								<a href="#">فراموشی کلمه عبور</a>
 								<a class="signup" href="#/register">ثبت‌نام</a>
 							</form>
@@ -77,35 +77,11 @@
 		<div class="container">
 			<div class="slideshow">
 				<ul class="bjqs">
-					<li>
+					<li ng-repeat="newsItem in news">
 						<div class="slide">
-							<img src="images/slide/1.jpg" />
+							<img src="{{newsItem.image}}" />
 							<div class="desc">
-								<h1>بانک آینده حامی جام جهانی فوتبال برزیل</h1>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="slide">
-							<img src="images/slide/1.jpg" />a
-							<div class="desc">
-								<h1>بانک آینده حامی جام جهانی فوتبال برزیل</h1>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="slide">
-							<img src="images/slide/1.jpg" />
-							<div class="desc">
-								<h1>بانک آینده حامی جام جهانی فوتبال برزیل</h1>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="slide">
-							<img src="images/slide/1.jpg" />
-							<div class="desc">
-								<h1>بانک آینده حامی جام جهانی فوتبال برزیل</h1>
+								<h1>{{newsItem.title}}</h1>
 							</div>
 						</div>
 					</li>
@@ -114,16 +90,16 @@
 			<div class="newslist">
 				<div class="news" ng-repeat="newsItem in news">
 					<div class="figure">
-						<img src="{{newsItem.src}}">
+						<img src="{{newsItem.thumbnail}}">
 					</div>
 					<div class="details">
-						<a href="/news/{{newsItem.id}}/{{newsItem.header | filterText}}"><h1>{{newsItem.header || 'تیتر خبر' }}</h1></a>
+						<a href="/news/{{newsItem.id}}/{{newsItem.title | filterText}}"><h1 title="{{newsItem.title}}">{{newsItem.title || 'تیتر خبر' | filterLimit}}</h1></a>
 						<p>
-							{{newsItem.content | filterLimit }}
+							{{newsItem.text | filterLimit }}
 						</p>
 						<span class="time">
 							<i class="icon-calendar"></i>
-							{{newsItem.date || 'تاریخ' }}
+							{{newsItem.creationDate || 'تاریخ' }}
 						</span>
 					</div>
 				</div>

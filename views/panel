@@ -55,7 +55,7 @@
                         <h2 class="time">
                             {{information.date || 'تاریخ' }}
                         </h2>
-                        <h1 class="username">{{information.name || 'نام'}}</h1>
+                        <h1 class="username">نام کاربری: {{information.name || 'test'}}</h1>
                         <h3>آخرین ورود: {{information.lastVisit || 'تاریخ' }}</h3>
                     </div>
                 </div>
@@ -160,30 +160,24 @@
                     </header>
                     <table id="dataTable">
                         <thead>
-                            <th>واریز</th>
-                            <th>برداشت</th>
-                            <th>نوع سند</th>
-                            <th>نوع برداشت</th>
-                            <th>شماره پیگیری</th>
-                            <th>شماره مرجع</th>
-                            <th>شماره ترمینال</th>
-                            <th>نام پذیرنده</th>
-                            <th>نام بانک</th>
+                            <th>نوع معامله</th>
+                            <th>رقم معامله</th>
+                            <th>نوع ترمینال</th>
+                            <th>کد ترمینال</th>
+                            <th>کدهای تجاری</th>
+                            <th>بانک صادر کننده</th>
+                            <th>زمان</th>
                             <th>تاریخ</th>
-                            <th>ردیف</th>
                         </thead>
                         <tr ng-repeat="col in information.infoTable">
-                            <td>{{col.a || 'خالی' }}</td>
-                            <td>{{col.b || 'خالی' }}</td>
-                            <td>{{col.c || 'خالی' }}</td>
-                            <td>{{col.d || 'خالی' }}</td>
-                            <td>{{col.e || 'خالی' }}</td>
-                            <td>{{col.f || 'خالی' }}</td>
-                            <td>{{col.g || 'خالی' }}</td>
-                            <td>{{col.h || 'خالی' }}</td>
-                            <td>{{col.i || 'خالی' }}</td>
-                            <td>{{col.j || 'خالی' }}</td>
-                            <td>{{col.k || 'خالی' }}</td>
+                            <td>{{col.transactionType || 'خالی' }}</td>
+                            <td>{{col.transactionPrice || 'خالی' }}</td>
+                            <td>{{col.terminalType || 'خالی' }}</td>
+                            <td>{{col.terminalId || 'خالی' }}</td>
+                            <td>{{col.merchantCode || 'خالی' }}</td>
+                            <td>{{col.issuerBank || 'خالی' }}</td>
+                            <td>{{col.time || 'خالی' }}</td>
+                            <td>{{col.date || 'خالی' }}</td>
                         </tr>
                     </table>
                 </article>

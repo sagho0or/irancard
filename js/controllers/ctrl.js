@@ -1,10 +1,7 @@
-function scrollTop(){
-  $('html,body').animate({scrollTop: 0},300);
-}
-
 angular.module('irancard')
 .run(function($rootScope) {
-  $rootScope.username = 'saghar';
+  $rootScope.username = '';
+  $rootScope.username_id = 'B0DC9F70-47E2-E311-99C2-78E7D1E7FC64&format';
   $rootScope.register = false ;
     
 })
@@ -12,47 +9,56 @@ angular.module('irancard')
 .filter('filterText', function() {
   // for encode and remove space 
   return function(str) { 
-    return str.replace(/[\s\u200C]/g, '_') 
+    return str.replace(/[\s\u200C]/g, '_');
   };
 })
 
 .filter('filterLimit', function(){
   // for text overflow
   return function(str) { 
-    return str.substr(0, 185)+'...'
+    return str.substr(0, 150)+'...';
   };
 })
+.factory('customFilter', function () {
+  return {
+    scrollTop: function() {
+      $('html,body').animate({scrollTop: 0},300);
+    }
+  };
+})
+.controller('IrancardController' , function ($rootScope, $scope , $http, customFilter , $timeout) {
 
-.controller('IrancardController' , function ($rootScope, $scope , $http) {
-
-  scrollTop();
+  customFilter.scrollTop();
   // for submit user
   var formData = { 
       username: "default",
       password: "default"
   };
 
-  $scope.submitForm = function() {
-    formData = $scope.form;
-    $http({
-      url: 'http://irancard.local',
-      method: "POST",
-      data: { 'username' : formData.username , 'password' : formData.password },
-      headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-    }).success(function (data, status, headers, config) {
-        var masalan = true;
-        if (masalan) {
-          $rootScope.username = formData.username;
-          $rootScope.password = formData.password;
-                    
-          window.location = apiBaseUrl + '#/panel'
-          // unescape(window.location);
-        };
-      }).error(function (data, status, headers, config) {
-          $scope.status = status;
-      });
-  };
+  // $scope.submitForm = function() {
+  //   formData = $scope.form;
+  //   $http({
+  //     url: 'http://192.168.0.75:8000/customer',
+  //     method: "POST",
+  //     type : "POST",
+  //     data: { 'username' : formData.username , 'password' : formData.password },
+  //     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+  //   }).success(function (data, status, headers, config) {
+  //       $rootScope.username = formData.username;
+  //       $rootScope.password = formData.password;
 
+  //       if ($rootScope.username == "test" && $rootScope.password == "test") {
+  //         $rootScope.username_id = 'B0DC9F70-47E2-E311-99C2-78E7D1E7FC64&format'
+  //         window.location = apiBaseUrl + '#/panel'
+  //       }else{
+  //         alert("نام کاربری یا رمز ورود شما صحیح نمی باشد");
+  //           };
+  //     }).error(function (data, status, headers, config) {
+  //         delete $window.sessionStorage.token;
+  //         $scope.status = status;
+  //     });
+
+  // };
 
   // for slider in homepage
   jQuery(document).ready(function($) {
@@ -65,23 +71,37 @@ angular.module('irancard')
     });
   });
 
-
-  //getting events json
+  //getting news json 
   $http({
     method: 'GET',
-    url: apiBaseUrl + '/js/json/news.json'
+    url: 'http://192.168.0.75:8000/api/v1/news/?format=json'
   }).
   success(function (data) {
-    $scope.news = data;
+    $scope.news = data.objects;
+    for (var i = 0; i < $scope.news.length; i++) {
+      $scope.news[i].thumbnail = 'http://192.168.0.75:8000' + data.objects[i].thumbnail;
+      $scope.news[i].image = 'http://192.168.0.75:8000' + data.objects[i].image;
+    };
+    // for slider in homepage
+    $timeout(function(){
+      $('.slideshow').bjqs({
+        'height': 350,
+        'width': 550,
+        'showmarkers': false,
+        'showcontrols': false
+      });
+    })
   }).
   error(function (data, status, headers, config) {
     console.log(status);
   });
+
 })
 
 
-.controller('NewsController' , function ($rootScope, $scope , $http ,$routeParams , $route) {
-  scrollTop();
+.controller('NewsController' , function ($rootScope, $scope , $http ,$routeParams , $route, customFilter) {
+  
+  customFilter.scrollTop();
   // for fix header
   jQuery(document).ready(function($) {
     var newStickies = new stickyTitles(jQuery(".stickyHeader"));
@@ -94,27 +114,28 @@ angular.module('irancard')
   //getting events json
   $http({
     method: 'GET',
-    url: apiBaseUrl + '/js/json/json'+$routeParams.id+'.php'
+    url: 'http://192.168.0.75:8000/api/v1/news/' + $routeParams.id + '/?format=json'
   }).
   success(function (data) {
-    $scope.subHeader = data.subHeader;
-    $scope.date = data.date;
-    $scope.header = data.header;
-    $scope.content = data.content;
-    $scope.src = data.src;
+    // $scope.subHeader = data.subHeader;
+    $scope.thumb = 'http://192.168.0.75:8000' + data.thumbnail;
+    $scope.creationDate = data.creationDate;
+    $scope.title = data.title;
+    $scope.text = data.text;
+    $scope.image = 'http://192.168.0.75:8000' + data.image;
   }).
   error(function (data, status, headers, config) {
     console.log(status);
   });
 })
 
-.controller('RegisterController' , function ($rootScope, $scope , $http , $route) {
+.controller('RegisterController' , function ($rootScope, $scope , $http , $routea, customFilter) {
 
 //   var myList = document.getElementsByTagName('body');
 // myList.setAttribute("class", "regiester");
 $rootScope.register = true;
 
-  scrollTop();
+  customFilter.scrollTop();
   // for submit user(login)
   var formData = {
       username: "default",
@@ -183,51 +204,40 @@ $rootScope.register = true;
       $scope.status = status;
     });
   };
-
-  // for slider in homepage
-  jQuery(document).ready(function($) {
-    $('.slideshow').bjqs({
-      'height': 350,
-      'width': 550,
-      'showmarkers': false,
-      'showcontrols': false
-    });
-  });
-
 })
 
 
 .controller('PanelController' , function ($rootScope, $scope , $http, $timeout) {
   scrollTop();
-  $scope.name = $rootScope.username;
-  
+  $scope.id = $rootScope.username_id;
+
   //getting events json
   $http({
     method: 'GET',
-    url: apiBaseUrl + '/js/json/' + $scope.name + '.json'
+    url: 'http://192.168.0.75:8000/api/v1/transaction/?id=' + $scope.id + '=json'
   }).
   success(function (data) {
     $scope.information= {
       lastVisit: data.lastVisit,
       date: data.date,
-      lastweek1: data.lastweek1,
-      lastweek2: data.lastweek2,
-      lastweek: data.lastweek,
-      mehr1: data.mehr1,
-      aban1: data.aban1,
-      shahrivar1: data.shahrivar1,
-      khordad1: data.khordad1,
-      dey1: data.dey1,
-      bahman1: data.bahman1,
-      esfand1: data.esfand1,
-      mehr2: data.mehr2,
-      aban2: data.aban2,
-      shahrivar2: data.shahrivar2,
-      khordad2: data.khordad2,
-      dey2: data.dey2,
-      bahman2: data.bahman2,
-      esfand2: data.esfand2,
-      infoTable: data.table,
+      lastweek1: '92',
+      lastweek2: '27',
+      lastweek: '99',
+      mehr1: '65',
+      aban1: '55',
+      shahrivar1: '22',
+      khordad1: '46',
+      dey1: '90',
+      bahman1: '15',
+      esfand1: '86',
+      mehr2: '65',
+      aban2: '55',
+      shahrivar2: '27',
+      khordad2: '70',
+      dey2: '47',
+      bahman2: '58',
+      esfand2: '23',
+      infoTable: data.objects,
     }
 
 

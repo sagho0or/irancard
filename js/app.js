@@ -1,5 +1,6 @@
 window.apiBaseUrl = 'http://irancard.local/';
 
+
 window.irancard = angular.module('irancard', [
   'ngRoute'
 ]).
@@ -26,6 +27,6 @@ config(function ($routeProvider, $locationProvider) {
       redirectTo: '/'
     });
 
-   $locationProvider.html5Mode(false);
+  $locationProvider.html5Mode(true);
 
 });

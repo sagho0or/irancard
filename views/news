@@ -65,26 +65,27 @@
                 <hgroup class="stickyHeader breadcrumb">
                     <div class="container">
                         <h1 class="icon newspaper">خبرها</h1>
-                        <h2>نشان فردوسی به قطب‌الدین صادقی اهدا شد</h2>
-                        <a href="#" class="more">بازگشت ←</a>
+                        <h2>{{title || 'تیتر خبر' }}</h2>
+                        <a href="/" class="more">بازگشت ←</a>
                     </div>
                 </hgroup>
             </div>
             <article class="paper">
                 <hgroup>
-                    <h2>{{subHeader || 'تیتر خبر' }}</h2>
-                    <h1>{{header || 'تیتر خبر' }}</h1>
+                    <!-- <h2>{{subHeader || 'تیتر خبر' }}</h2> -->
+                    <h1>{{title || 'تیتر خبر' }}</h1>
                     <div class="meta">
-                        <span class="date">{{date || 'تاریخ' }}</span>
+                        <span class="date">{{creationDate || 'تاریخ' }}</span>
                     </div>
                 </hgroup>
 
                 <article>
                     <figure class="right">
-                        <img src="{{src}}">
+                        <img src="{{thumb}}">
                     </figure>
-                    <p>{{content}}
+                    <p>{{text}}
                     </p>
+                    <!-- 
                     <h2>عنوان بخش دوم</h2>
                     <p>
                         بانی فیلم آنلاین: دانشگاه فردوسی مشهد با حضور وزیر فرهنگ و ارشاد اسلامی نشان فردوسی را به احمد سمیعی، مهدی محقق و قطب‌الدین صادقی اهدا کرد و صادقی طی برگزاری مراسم اهدای این نشان پیشنهاد برگزاری مسابقه و اهدای جایزه به نمایش‌های برگرفته از شاهنامه فردوسی را داد.
@@ -92,8 +93,9 @@
                         <br>احمد سمیعی از چهره‌های ماندگار ایران، مهدی محقق رئیس انجمن مفاخر ایران و قطب‌الدین صادقی پژوهشگر، مترجم، نمایشنامه نویس و کارگردان تئاتر نشان فردوسی را دریافت کردند. صادقی بعد از دریافت این نشان ادبی پیشنهاد برگزاری مسابقه‌ای سالانه برای پژوهش‌ها و نمایش‌های تولید شده بر اساس شاهنامه فردوسی و اهدای جایزه به آثار برگزیده را از طرف خانه تئاتر مطرح کرد. این مراسم جمعه 26 اردیبهشت‌ماه برگزار شد.
                     </p>
                     <figure>
-                        <img src="images/slide/1.jpg">
+                        <img src="{{image}}">
                     </figure>
+                    
                     <h3>شاید یه بخش دیگه داخل بخش دو</h3>
                     <p>
                         بانی فیلم آنلاین: دانشگاه <a href="#"> فردوسی مشهد </a> با حضور وزیر فرهنگ و ارشاد اسلامی نشان فردوسی را به احمد سمیعی، مهدی محقق و قطب‌الدین صادقی اهدا کرد و صادقی طی برگزاری مراسم اهدای این نشان پیشنهاد برگزاری مسابقه و اهدای جایزه به نمایش‌های برگرفته از شاهنامه فردوسی را داد.
@@ -196,15 +198,15 @@
 
                     <form class="comment-submit">
                         <div class="form-input">
-                            <!-- <label>نام</label> -->
+                            <label>نام</label>
                             <input id="comment-name" type="text" placeholder="نام" class="validate[required],maxSize[200] ">
                         </div>
-                        <div class="form-input">
-                            <!-- <label>ایمیل</label> -->
+                        <div class="form-input"> 
+                            <label>ایمیل</label>
                             <input id="comment-email" type="text" placeholder="ایمیل" class="validate[required],custom[email]], maxSize[200]">
                         </div>
                         <div class="form-input">
-                            <!-- <label>پیام</label> -->
+                             <label>پیام</label> 
                             <textarea id="comment-content" resize="off" placeholder="دیدگاه شما" class="validate[required]"></textarea>
                         </div>
                         <div class="form-submit">
@@ -212,7 +214,7 @@
                             <input id="comment-post" class="btn btn-success" type="submit" value="ارسال">
                         </div>
                     </form>
-                </article>
+                </article> -->
             </article>
         </div>
     </section>
